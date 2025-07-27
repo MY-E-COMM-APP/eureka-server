@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+server:
+  port: 8761
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "threaddump"
+  endpoint:
+    health:
+      show-details: always
+      group:
+        custom:
+          include:
+            - diskSpace
+            - ping
+          show-components: always
+          show-details: always
+info: 
+  application:
+    name: E-Comm-Eureka-Server
+    description: A demo application with custom info
+    version: 1.0
+  environment:
+    enabled: true
+  custom:
+    message: Custom info!
+    author: Niteesh Nadiger
